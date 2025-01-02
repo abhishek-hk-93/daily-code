@@ -9,6 +9,7 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        /*
         unordered_map<ListNode*, bool> m;
         ListNode* temp = head;
         while(temp != NULL){
@@ -18,6 +19,18 @@ public:
                 m[temp] = true;
             }
             temp = temp->next;
+        }
+        return false;*/
+
+        // using
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow == fast){
+                return true;
+            }
         }
         return false;
     }
