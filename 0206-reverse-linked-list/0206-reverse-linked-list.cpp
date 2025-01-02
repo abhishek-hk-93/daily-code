@@ -22,8 +22,20 @@ public:
         return reverseRecursively(prev, curr);
     }
     ListNode* reverseList(ListNode* head) {
+        
+        /* Recursive solution 
         ListNode* prev = NULL;
         ListNode* curr = head;
         return reverseRecursively(prev, curr);
+        */
+
+        ListNode* prev = NULL;
+        while(head != NULL){
+            ListNode* forward = head->next;
+            head->next = prev;
+            prev = head;
+            head = forward;
+        }
+        return prev;
     }
 };
