@@ -11,6 +11,7 @@
 class Solution {
 public:
 
+    /*
     ListNode* reverseRecursively(ListNode* &prev, ListNode* curr){
         if(curr == NULL){
             return prev;
@@ -21,6 +22,8 @@ public:
         curr = forward;
         return reverseRecursively(prev, curr);
     }
+    */
+    
     ListNode* reverseList(ListNode* head) {
         
         /* Recursive solution 
