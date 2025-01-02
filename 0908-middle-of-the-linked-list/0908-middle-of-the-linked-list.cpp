@@ -14,7 +14,7 @@ public:
         ListNode* slow = head;
         ListNode* fast = head;
 
-        while( fast != NULL){
+        while(fast != NULL){
             fast = fast->next;
             if(fast != NULL){
                 fast = fast->next;
