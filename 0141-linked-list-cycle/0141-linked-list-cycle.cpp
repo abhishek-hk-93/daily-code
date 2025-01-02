@@ -9,23 +9,9 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        /*
-        // Using unordered map -> space complexity is O(n)
-        unordered_map<ListNode*, bool> m;
-        ListNode* temp = head;
-        while(temp != NULL){
-            if(m[temp] == true){
-                return true;
-            } else {
-                m[temp] = true;
-            }
-            temp = temp->next;
-        }
-        return false;*/
-
-        // using double pointer -> space complexity is O(1)
         ListNode* slow = head;
         ListNode* fast = head;
+
         while(fast != NULL && fast->next != NULL){
             slow = slow->next;
             fast = fast->next->next;
