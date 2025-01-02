@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+
     ListNode* getMiddle(ListNode* head){
         ListNode* slow = head;
         ListNode* fast = head;
@@ -23,7 +24,7 @@ public:
         return slow;
     }
 
-    ListNode* reverseList(ListNode* &prev, ListNode* &curr){
+    ListNode* reverseList(ListNode* prev,ListNode* curr){
         while(curr != NULL){
             ListNode* forward = curr->next;
             curr->next = prev;
@@ -44,18 +45,16 @@ public:
         }
         return true;
     }
-
     bool isPalindrome(ListNode* head) {
         ListNode* middle = getMiddle(head);
         ListNode* temp = head;
-        ListNode* prev = NULL;
         while(temp && temp->next != middle){
             temp = temp->next;
         }
-        if(temp) {
+        if(temp){
             temp->next = NULL;
         }
-        
+        ListNode* prev = NULL;
         ListNode* newHead = reverseList(prev, middle);
         return compareLists(head, newHead);
     }
