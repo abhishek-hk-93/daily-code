@@ -10,20 +10,14 @@
  */
 class Solution {
 public:
-
-    ListNode* reverseRecursively(ListNode* &prev, ListNode* curr){
-        if(curr == NULL){
-            return prev;
-        }
-        ListNode* forward = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = forward;
-        return reverseRecursively(prev, curr);
-    }
     ListNode* reverseList(ListNode* head) {
         ListNode* prev = NULL;
-        ListNode* curr = head;
-        return reverseRecursively(prev, curr);
+        while(head != NULL){
+            ListNode* forward = head->next;
+            head->next = prev;
+            prev = head;
+            head = forward;
+        }
+        return prev;
     }
 };
