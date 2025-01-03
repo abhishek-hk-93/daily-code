@@ -12,16 +12,16 @@ class Solution {
 public:
 
     ListNode* getMiddle(ListNode* head){
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while(fast != NULL){
-            fast = fast->next;
-            if(fast != NULL){
-                fast = fast->next;
-                slow = slow->next;
+        ListNode* slowPointer = head;
+        ListNode* fastPointer = head;
+        while(fastPointer != NULL){
+            fastPointer = fastPointer->next;
+            if(fastPointer != NULL){
+                fastPointer = fastPointer->next;
+                slowPointer = slowPointer->next;
             }
         }
-        return slow;
+        return slowPointer;
     }
 
     ListNode* reverseList(ListNode* prev,ListNode* curr){
