@@ -14,19 +14,19 @@ public:
         if(head == NULL || head->next == NULL){
             return head;
         }
-        ListNode* prev = head;
-        ListNode* temp = head->next;
-        while(prev->next != NULL){
-            temp = prev->next;
-            if(temp->val == prev->val){
-                prev->next = temp->next;
+        ListNode* prevNode = head;
+        ListNode* temp;
+        while(prevNode->next != NULL){
+            temp = prevNode->next;
+            if(temp->val == prevNode->val){
+                prevNode->next = temp->next;
                 temp->next = NULL;
                 delete temp;
             }else {
-                prev = prev->next;
+                prevNode = prevNode->next;
                 temp = temp->next;
             }
         }
-        return head;  
+        return head;
     }
 };
