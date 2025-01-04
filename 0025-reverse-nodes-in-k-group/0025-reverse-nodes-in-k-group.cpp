@@ -40,6 +40,7 @@ public:
             curr = forward;
             counter++;
         }
+        // only if elements are left after reversing this group
         if(curr != NULL){
             ListNode* recHead = reverseKGroup(curr, k);
             head->next = recHead;
