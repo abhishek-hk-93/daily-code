@@ -17,19 +17,21 @@ public:
         ListNode* startNode = new ListNode(-1);
         ListNode* temp = startNode;
 
+        // iterate until one of the lists reach null
         while(list1 && list2){
             if(list1->val <= list2->val){
                 temp->next = list1;
-                temp = list1;
                 list1 = list1->next;
-            }else{
+                temp = temp->next;
+            } else {
                 temp->next = list2;
-                temp = list2;
                 list2 = list2->next;
+                temp = temp->next;
             }
         }
-        if(list1) temp->next = list1;
-        if(list2) temp->next = list2;
+        // point temp to the remaining list
+        if(!list1) temp->next = list2;
+        if(!list2) temp->next = list1;
 
         return startNode->next;
     }
